@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout.html">
+<head>
+    <title>Edit Category | Expense Tracker</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>Edit Category</h3>
+    <form th:action="@{/category/edit}" th:object="${category}" method="post" class="mt-3">
+        <!-- Hidden ID field -->
+        <input th:field="*{id}" type="hidden" />
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Category Name</label>
+            <input th:field="*{name}" id="name" class="form-control" placeholder="Enter category name" required />
+        </div>
+
+        <div class="d-flex">
+            <button type="submit" class="btn btn-primary me-2">Save</button>
+            <a th:href="@{/dashboard}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</section>
+</body>
+</html>

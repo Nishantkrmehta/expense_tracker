@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/dashboard}">Expense Tracker</a>
+            <div class="ms-auto">
+                <a th:if="${#request.remoteUser != null}" th:href="@{/logout}" class="btn btn-outline-secondary btn-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="footer">
+    <footer class="text-center py-3">
+        &copy; <span th:text="${#dates.format(#dates.createNow(),'yyyy')}">2025</span> Expense Tracker
+    </footer>
+</div>
+</body>
+</html>
